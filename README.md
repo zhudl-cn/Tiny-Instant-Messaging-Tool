@@ -14,7 +14,7 @@ ngnix is used to  simulating the Operation of a Server Cluster, mysql is used to
 
 ## Implement Framework
 
-![工具框架](.\imgs\实现框架.png)
+![ImplementFramework](imgs\ImplementFramework.png)
 
 ## Features
 
@@ -40,19 +40,19 @@ Main workflow:
 
 - Start Listening
 
-![工具框架](.\imgs\开启监听.png)
+![StartListening](imgs\StartListening.png)
 
 - Build Connection
 
-  ![工具框架](.\imgs\建立连接.png)
+  ![BuildConnection](imgs\BuildConnection.png)
 
 - Handle Event
 
-  ![工具框架](.\imgs\处理事件.png)
+  ![HandleEvents](imgs\HandleEvents.png)
 
 - Close Connection
 
-  ![工具框架](.\imgs\关闭连接.png)
+  ![CloseConnection](imgs\CloseConnection.png)
 
 ## Configuration
 
