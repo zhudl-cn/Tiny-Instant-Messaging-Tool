@@ -1,0 +1,130 @@
+开启监听：
+TCPServer.Acceptor -> Acceptor.StartListen -> Acceptor.AcceptorChannel -> Channel.RegisterEvent -> TCPServer.Eventloop -> Poller.IOMutiplexFunction
+
+TCPServer: {
+  Eventloop
+  WorkerEventLoopThreadPool
+  Acceptor
+}
+
+Acceptor: {
+  CreateSocket
+  BindAddress
+  StartListen
+  AcceptorChannel
+}
+
+Channel: {
+  RegisterEvent
+  EventHandler
+}
+
+Poller: {
+  IOMutiplexFunction
+}
+
+建立连接
+Poller.IOMutiplexFunction -> TCPServer.Eventloop.ActiveChannelList -> AcceptorChannel.EventHandler -> Acceptor.handleRead -> TCPServer.newConnection -> WorkerEventLoopThreadPool.WorkerEventLoop1 -> TCPConnection.connectEstablished
+
+TCPServer: {
+  Eventloop: {
+    ActiveChannelList
+  }
+  WorkerEventLoopThreadPool
+  Acceptor
+  newConnection
+}
+
+WorkerEventLoopThreadPool: {
+  WorkerEventLoop1
+  WorkerEventLoop2
+  WorkerEventLoop3
+}
+
+TCPConnection: {
+  ConnectionChannel: {
+    ReadHandler
+    Writehandler
+    CloseHandler
+    ErrorHandler
+  }
+  connectEstablished
+}
+
+Acceptor: {
+  AcceptorChannel
+  handleRead: {
+    accept
+  }
+}
+
+AcceptorChannel: {
+  ReadHandler
+}
+
+Poller: {
+  IOMutiplexFunction
+}
+
+处理事件
+WorkerEventLoop1.Poller.IOMutiplexFunction -> WorkerEventLoop1.ActiveChannelList -> TCPConnection.ConnectionChannel.Handler -> ApplicationLayer.Handler
+
+ApplicationLayer: {
+  Handler: {
+    onRead
+    onWrite
+    onClose
+    onError
+  }
+}
+
+TCPConnection: {
+  ConnectionChannel: {
+    Handler: {
+      ReadHandler
+      Writehandler
+      CloseHandler
+      ErrorHandler
+    }
+  }
+}
+
+WorkerEventLoop1: {
+  Poller: {
+    IOMutiplexFunction
+  }
+}
+
+关闭连接
+WorkerEventLoop1.Poller.IOMutiplexFunction -> WorkerEventLoop1.ActiveChannelList -> TCPConnection.ConnectionChannel -> ConnectionChannel.Handler.handleClose -> TCPConnection.ConnectionHandler -> ApplicationLayer.Handler
+ConnectionChannel.Handler.handleClose -> TCPConnection.CloseHandler -> TCPServer.removeConnection -> TCPConnection.connectDestroyed
+
+ApplicationLayer: {
+  Handler
+}
+
+TCPConnection: {
+  ConnectionChannel
+  ConnectionHandler
+  CloseHandler
+  connectDestroyed
+}
+
+ConnectionChannel: {
+  Handler: {
+    handleClose
+  }
+}
+
+TCPServer: {
+  EventLoop
+  removeConnection
+}
+
+WorkerEventLoop1: {
+  Poller: {
+    IOMutiplexFunction
+  }
+  ActiveChannelList
+}
+
