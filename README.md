@@ -6,13 +6,13 @@ ngnix is used to  simulating the Operation of a Server Cluster, mysql is used to
 
 ## Table of Contents
 
-- [Implement Framework](#Implement Framework)
+- [Implement Framework](#ImplementFramework)
 - [Features](#Features)
-- [Network Framework](#Network Framework)
+- [Network Framework](#NetworkFramework)
 - [Configuration](#Configuration)
 - [DEMO](#DEMO)
 
-## Implement Framework
+## ImplementFramework
 
 ![ImplementFramework](imgs/ImplementFramework.png)
 
@@ -27,7 +27,7 @@ ngnix is used to  simulating the Operation of a Server Cluster, mysql is used to
 - Add Group
 - Offline Message
 
-## Network Framework
+## NetworkFramework
 
 The network framework directly uses the network of another open-source project: https://github.com/balloonwj/flamingo
 
