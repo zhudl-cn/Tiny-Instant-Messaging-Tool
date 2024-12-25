@@ -14,7 +14,7 @@ ngnix is used to  simulating the Operation of a Server Cluster, mysql is used to
 
 ## Implement Framework
 
-![ImplementFramework](imgs\ImplementFramework.png)
+![ImplementFramework](imgs/ImplementFramework.png)
 
 ## Features
 
@@ -40,19 +40,19 @@ Main workflow:
 
 - Start Listening
 
-![StartListening](imgs\StartListening.png)
+![StartListening](imgs/StartListening.png)
 
 - Build Connection
 
-  ![BuildConnection](imgs\BuildConnection.png)
+  ![BuildConnection](imgs/BuildConnection.png)
 
 - Handle Event
 
-  ![HandleEvents](imgs\HandleEvents.png)
+  ![HandleEvents](imgs/HandleEvents.png)
 
 - Close Connection
 
-  ![CloseConnection](imgs\CloseConnection.png)
+  ![CloseConnection](imgs/CloseConnection.png)
 
 ## Configuration
 
@@ -121,5 +121,5 @@ Main workflow:
 
 ## DEMO
 
-![聊天](.\imgs\聊天.png)
+![DEMO](imgs/chat.png)
 
